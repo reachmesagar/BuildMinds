@@ -53,8 +53,8 @@ export default function App() {
   return (
     <div className="min-h-screen bg-paper text-ink font-body">
       
-      
-      <RouterProvider router={router} />
+        <Home></Home>
+      {/* <RouterProvider router={router} /> */}
       <Footer />
     </div>
   );

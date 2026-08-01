@@ -3,11 +3,11 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X, Cpu } from 'lucide-react'
 
 const links = [
-  { id: 'why', label: 'Why Forge' },
+  { id: 'why', label: 'About US' },
   { id: 'curriculum', label: 'Curriculum' },
-  { id: 'courses', label: 'Courses' },
-  { id: 'exams', label: 'Exams' },
-  { id: 'admissions', label: 'Admissions' }
+  { id: 'courses', label: 'Updates' },
+  { id: 'exams', label: 'Vaccancies' },
+  // { id: 'admissions', label: 'Admissions' }
 ]
 
 export default function Navbar({ active }) {
@@ -31,7 +31,7 @@ export default function Navbar({ active }) {
         scrolled ? 'bg-paper/85 backdrop-blur-md border-b border-ink/10' : 'bg-transparent'
       }`}
     >
-      <div className="max-w-7xl mx-auto px-6 lg:px-10 h-16 flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-6 lg:px-10 h-20 flex items-center justify-between">
         <button
           onClick={() => scrollTo('hero')}
           className="flex items-center gap-2 font-display font-semibold text-lg text-ink"
@@ -39,7 +39,8 @@ export default function Navbar({ active }) {
           <span className="grid place-items-center w-8 h-8 rounded-md bg-ink text-paper">
             <Cpu size={16} strokeWidth={2} />
           </span>
-          FORGE
+          Build Minds
+          
         </button>
 
         <nav className="hidden md:flex items-center gap-1">

@@ -157,10 +157,10 @@ export default function Hero() {
             initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-circuit bg-circuit/10 border border-circuit/25 rounded-full px-3 py-1.5 mb-6"
+            className="text-bold inline-flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-circuit bg-circuit/10 border border-circuit/25 rounded-full px-3 py-1.5 mb-6"
           >
-            <span className="w-1.5 h-1.5 rounded-full bg-circuit animate-pulse" />
-            Undergraduate Specialization · Est. 2018
+            <span className="w-1.5 h-1.5 rounded-full bg-circuit animate-pulse " />
+            Shaping future ready minds from and Early Age.
           </motion.div>
 
           <motion.h1
@@ -169,7 +169,7 @@ export default function Hero() {
             transition={{ duration: 0.55, delay: 0.05 }}
             className="font-display font-semibold text-4xl sm:text-5xl lg:text-[3.4rem] leading-[1.08] text-ink"
           >
-            Where undergrads learn to build the machines that think.
+            Shaping future ready minds from and Early Age.
           </motion.h1>
 
           <motion.p
@@ -178,9 +178,9 @@ export default function Hero() {
             transition={{ duration: 0.55, delay: 0.15 }}
             className="mt-5 text-lg text-steel max-w-xl leading-relaxed"
           >
-            FORGE is a four-semester Robotics &amp; AI program built around real hardware, real
-            code, and real exams — not lecture slides. Every student leaves with a working
-            prototype and a transcript that proves they built it.
+The world is shifting from the Information Age to the Intelligence Age — and the next generation can't afford to just use AI and Robotics. They need to create it.
+
+BuildMind is on a mission to make every classroom, from Class 6 to Class 10, a launchpad for Nepall's future innovators, engineers, and AI pioneers. We don't teach theory from textbooks — we hand students real robots, real code, and real problems to solve.
           </motion.p>
 
           <motion.div

@@ -32,12 +32,11 @@ export default function App() {
       <Hero />
       <Highlights />
       <Curriculum />
-      <Courses />
       <Exams />
       <Admissions />
     </main>
   );
-  const About = () => <AboutPage></AboutPage>;
+  
 
   const router = createBrowserRouter([
     {
@@ -46,15 +45,13 @@ export default function App() {
     },
     {
       path: "/about",
-      element: <About />,
+      element: <AboutPage></AboutPage>,
     },
   ]);
 
   return (
-    <div className="min-h-screen bg-paper text-ink font-body">
-      
-        <Home></Home>
-      {/* <RouterProvider router={router} /> */}
+    <div className="min-h-screen bg-paper text-ink font-body"> 
+      <RouterProvider router={router} />
       <Footer />
     </div>
   );

@@ -62,7 +62,7 @@ export default function Navbar({ active }) {
             onClick={() => navigation.navigate("/about")}
             className="px-5 py-2.5 rounded-full bg-ink text-paper text-sm font-medium hover:bg-copper transition-colors duration-300"
           >
-            {/* Apply Now */} About US
+            {/* Apply Now */} Contact
           </button>
         </div>
 

@@ -12,11 +12,10 @@ export default function Curriculum() {
         <div className="max-w-2xl">
           <span className="font-mono text-xs uppercase tracking-widest text-copper">Curriculum</span>
           <h2 className="mt-3 font-display font-semibold text-3xl lg:text-4xl text-ink">
-            Four semesters, one continuous build.
+            Three Course, one continuous build.
           </h2>
           <p className="mt-4 text-steel leading-relaxed">
-            Each semester ends with a working milestone, not just a transcript line. Courses
-            within a semester are scheduled to support that milestone directly.
+            Each course ends with a working milestone, not just a transcript line which  are scheduled to support that milestone directly.
           </p>
         </div>
 

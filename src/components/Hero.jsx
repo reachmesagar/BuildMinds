@@ -153,7 +153,7 @@ export default function Hero() {
       <div className="absolute inset-0 bg-gradient-to-b from-paper via-paper to-paperDim/60 -z-10" />
       <div className="max-w-7xl mx-auto px-6 lg:px-10 grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
         <div>
-          <motion.div
+          {/* <motion.div
             initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
@@ -161,7 +161,7 @@ export default function Hero() {
           >
             <span className="w-1.5 h-1.5 rounded-full bg-circuit animate-pulse " />
             Shaping future ready minds from and Early Age.
-          </motion.div>
+          </motion.div> */}
 
           <motion.h1
             initial={{ opacity: 0, y: 12 }}
@@ -169,7 +169,7 @@ export default function Hero() {
             transition={{ duration: 0.55, delay: 0.05 }}
             className="font-display font-semibold text-4xl sm:text-5xl lg:text-[3.4rem] leading-[1.08] text-ink"
           >
-            Shaping future ready minds from and Early Age.
+            Shaping future ready minds from an Early Age.
           </motion.h1>
 
           <motion.p
@@ -193,7 +193,7 @@ BuildMind is on a mission to make every classroom, from Class 6 to Class 10, a l
               onClick={() => document.getElementById('admissions')?.scrollIntoView({ behavior: 'smooth' })}
               className="group inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-ink text-paper font-medium hover:bg-copper transition-colors duration-300"
             >
-              Apply for Fall Intake
+              Apply for Coming Intake
               <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
             </button>
             <button
@@ -204,32 +204,8 @@ BuildMind is on a mission to make every classroom, from Class 6 to Class 10, a l
               View Curriculum
             </button>
           </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            className="mt-12 grid grid-cols-3 gap-6 max-w-md border-t border-ink/10 pt-6"
-          >
-            <div>
-              <div className="font-display font-semibold text-2xl text-ink">
-                <AnimatedCounter value={4} suffix=" sem" />
-              </div>
-              <p className="font-mono text-[11px] uppercase tracking-wider text-steel mt-1">Full track</p>
-            </div>
-            <div>
-              <div className="font-display font-semibold text-2xl text-ink">
-                <AnimatedCounter value={12} />
-              </div>
-              <p className="font-mono text-[11px] uppercase tracking-wider text-steel mt-1">Core courses</p>
-            </div>
-            <div>
-              <div className="font-display font-semibold text-2xl text-ink">
-                <AnimatedCounter value={92} suffix="%" />
-              </div>
-              <p className="font-mono text-[11px] uppercase tracking-wider text-steel mt-1">Placement rate</p>
-            </div>
-          </motion.div>
+            <div className="mt-12 grid grid-cols-3 gap-6 max-w-md border-t border-ink/10 pt-6"></div>
+      
         </div>
 
         <RoboticDiagram />

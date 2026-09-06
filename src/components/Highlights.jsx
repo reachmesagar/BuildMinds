@@ -28,15 +28,12 @@ export default function Highlights() {
   return (
     <section id="why" className="py-24 lg:py-32">
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
-        <div className="max-w-2xl">
-          <span className="font-mono text-xs uppercase tracking-widest text-copper">Why Forge</span>
+        <div className="max-w-5xl">
           <h2 className="mt-3 font-display font-semibold text-3xl lg:text-4xl text-ink">
-            Why Forge
+            Why Build Minds ?
           </h2>
           <p className="mt-4 text-steel leading-relaxed">
-            Lectures explain how something works. Forge is built around the moment after that —
-            when you have to make it work yourself, on hardware that doesn't care about partial
-            credit.
+            Nepal's current curriculum introduces computer science and basic science concepts — but almost nowhere does a student get to physically build a robot, write code that controls real hardware, or work through an actual engineering problem from idea to working prototype. Students graduate school having heard about technology, not having built with it. By the time they reach university or the job market, students from countries with hands-on STEM exposure are years ahead — not because they're smarter, but because they started building earlier.
           </p>
         </div>
 

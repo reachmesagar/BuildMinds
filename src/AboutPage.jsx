@@ -175,7 +175,7 @@ export default function AboutPage() {
         <div className="nav">
           <div className="logo">
             <div className="logo-mark"><Settings size={16} /></div>
-            FORGE
+            Build Minds
           </div>
           <nav className="nav-links">
             <a href="#">Why Forge</a>
@@ -185,7 +185,7 @@ export default function AboutPage() {
             <a href="#">Exams</a>
             <a href="#">Admissions</a>
           </nav>
-          <a href="#" className="btn-dark">Apply Now</a>
+          <a href="/" className="btn-dark">Apply Now</a>
         </div>
       </header>
 

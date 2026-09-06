@@ -6,7 +6,7 @@ const links = [
   { id: 'why', label: 'About US' },
   { id: 'curriculum', label: 'Curriculum' },
   { id: 'courses', label: 'Updates' },
-  { id: 'exams', label: 'Vaccancies' },
+  // { id: 'exams', label: 'Vaccancies' },
   // { id: 'admissions', label: 'Admissions' }
 ]
 
@@ -34,7 +34,7 @@ export default function Navbar({ active }) {
       <div className="max-w-7xl mx-auto px-6 lg:px-10 h-20 flex items-center justify-between">
         <button
           onClick={() => scrollTo('hero')}
-          className="flex items-center gap-2 font-display font-semibold text-lg text-ink"
+          className="flex items-center gap-2 font-display font-semibold text-xl text-ink"
         >
           <span className="grid place-items-center w-8 h-8 rounded-md bg-ink text-paper">
             <Cpu size={16} strokeWidth={2} />

@@ -4,14 +4,12 @@ import ScrollSpine from "./components/ScrollSpine.jsx";
 import Hero from "./components/Hero.jsx";
 import Highlights from "./components/Highlights.jsx";
 import Curriculum from "./components/Curriculum.jsx";
-import Courses from "./components/Courses.jsx";
-import Exams from "./components/Exams.jsx";
+import HowWeGotHere from "./components/HowWeGotHere.jsx";
+import  WhoIsRunningIt from "./components/WhoIsRunningIt .jsx";
 import Admissions from "./components/Admissions.jsx";
 import Footer from "./components/Footer.jsx";
 import { useActiveSection } from "./hooks/useActiveSection.js";
-import AboutPage from "./AboutPage.jsx";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-
 const SECTION_IDS = [
   "hero",
   "why",
@@ -32,7 +30,8 @@ export default function App() {
       <Hero />
       <Highlights />
       <Curriculum />
-      <Exams />
+      <WhoIsRunningIt></WhoIsRunningIt>
+      <HowWeGotHere></HowWeGotHere>
       <Admissions />
     </main>
   );
@@ -43,15 +42,13 @@ export default function App() {
       path: "/",
       element: <Home />,
     },
-    {
-      path: "/about",
-      element: <AboutPage></AboutPage>,
-    },
+    
   ]);
 
   return (
     <div className="min-h-screen bg-paper text-ink font-body"> 
-      <RouterProvider router={router} />
+      {/* <RouterProvider router={router} /> */}
+      <Home />
       <Footer />
     </div>
   );

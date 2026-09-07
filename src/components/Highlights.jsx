@@ -26,11 +26,12 @@ const items = [
 
 export default function Highlights() {
   return (
-    <section id="why" className="py-24 lg:py-32">
+  <section id="why" className="py-24 lg:py-32">
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
-        <div className="max-w-5xl">
+        <div className="max-w-2xl">
+          <span className="font-mono text-xs uppercase tracking-widest text-copper"></span>
           <h2 className="mt-3 font-display font-semibold text-3xl lg:text-4xl text-ink">
-            Why Build Minds ?
+            Mission & Vision ?
           </h2>
           <p className="mt-4 text-steel leading-relaxed">
             Nepal's current curriculum introduces computer science and basic science concepts — but almost nowhere does a student get to physically build a robot, write code that controls real hardware, or work through an actual engineering problem from idea to working prototype. Students graduate school having heard about technology, not having built with it. By the time they reach university or the job market, students from countries with hands-on STEM exposure are years ahead — not because they're smarter, but because they started building earlier.

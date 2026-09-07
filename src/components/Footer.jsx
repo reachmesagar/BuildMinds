@@ -1,10 +1,8 @@
 import { Cpu, Mail, MapPin, Linkedin, Github, Twitter } from 'lucide-react'
 
 const sitemap = [
-  { id: 'why', label: 'Why Forge' },
+  { id: 'why', label: 'Mission & Vision' },
   { id: 'curriculum', label: 'Curriculum' },
-  { id: 'courses', label: 'Courses' },
-  { id: 'exams', label: 'Exams' },
   { id: 'admissions', label: 'Admissions' }
 ]
 
@@ -19,7 +17,7 @@ export default function Footer() {
             <span className="grid place-items-center w-8 h-8 rounded-md bg-copper text-white">
               <Cpu size={16} />
             </span>
-            FORGE
+            Build Minds
           </div>
           <p className="mt-4 text-sm leading-relaxed max-w-xs">
             An undergraduate Robotics &amp; AI specialization built around hardware, hands-on

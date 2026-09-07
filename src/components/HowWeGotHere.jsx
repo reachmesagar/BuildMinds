@@ -41,7 +41,7 @@ export default function HowWeGotHere() {
       <div className="story-wrap">
         <div className="story">
           <div>
-            <div className="section-label">How we got here</div>
+            <div className="section-label text-black">How we got here</div>
             <h2>Theory was never the problem. The lecture hall was.</h2>
             <div className="pull">
               "Every cohort ends the semester having shipped something that moves, sees, or decides on its own.

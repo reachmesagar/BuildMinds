@@ -18,7 +18,7 @@ export default function WhoIsRunningIt() {
   ];
 
   return (
-    <section className="forge-team-section">
+    <section className="forge-team-section py-24 lg:py-32" id="forge-team-section">
       <style>{`
         .forge-team-section{
           --bg: #F7F6F1;
@@ -52,7 +52,11 @@ export default function WhoIsRunningIt() {
         }
         .forge-team-section .team-card{
           background: var(--card-bg); border: 1px solid var(--border); border-radius: var(--radius);
-          padding: 28px; width: 320px; flex: 0 1 320px;
+          padding: 28px; width: 320px; flex: 0 1 320px; display: block;
+          transition: border-color 0.2s ease, transform 0.2s ease;
+        }
+        .forge-team-section .team-card:hover{
+          border-color: var(--orange, #D9683E); transform: translateY(-2px);
         }
         .forge-team-section .avatar{
           width: 72px; height: 72px; border-radius: 50%; display:flex; align-items:center; justify-content:center;
@@ -69,6 +73,8 @@ export default function WhoIsRunningIt() {
           display:block; font-family:'IBM Plex Mono', monospace; font-size: 11.5px;
           color: var(--mint-text); letter-spacing: 0.03em;
         }
+        .forge-team-section .team-card,
+        .forge-team-section .team-card:visited{ color: inherit; text-decoration: none; }
         @media (max-width: 700px){
           .forge-team-section .team-card{ width: 100%; flex-basis: 100%; }
         }
@@ -79,7 +85,7 @@ export default function WhoIsRunningIt() {
         <h2>The people behind the lab.</h2>
         <div className="team-grid">
           {founders.map((founder) => (
-            <div className="team-card" key={founder.initials}>
+            <a className="team-card" href="/founders" key={founder.initials}>
               <div className="avatar" style={{ background: founder.photo ? "transparent" : founder.bg }}>
                 {founder.photo ? (
                   <img src={founder.photo} alt={founder.name} />
@@ -89,7 +95,7 @@ export default function WhoIsRunningIt() {
               </div>
               <h3>{founder.name}</h3>
               <span>{founder.role}</span>
-            </div>
+            </a>
           ))}
         </div>
       </div>

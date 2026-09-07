@@ -207,8 +207,9 @@ BuildMind is on a mission to make every classroom, from Class 6 to Class 10, a l
             <div className="mt-12 grid grid-cols-3 gap-6 max-w-md border-t border-ink/10 pt-6"></div>
       
         </div>
-
+            <div className='order-1 lg:order-2'>
         <RoboticDiagram />
+        </div>
       </div>
     </section>
   )

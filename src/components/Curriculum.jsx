@@ -44,7 +44,7 @@ export default function Curriculum() {
                   </span>
                   <span className="hidden sm:flex items-center gap-1 font-mono text-xs text-steel">
                     <Beaker size={14} />
-                    {sem.hours.lab}h lab / {sem.hours.lecture}h lecture
+                    {/* {sem.hours.lab}h lab / {sem.hours.lecture}h lecture */}
                   </span>
                   <motion.span animate={{ rotate: isOpen ? 180 : 0 }} transition={{ duration: 0.3 }}>
                     <ChevronDown size={20} className="text-steel" />

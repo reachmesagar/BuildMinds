@@ -1,11 +1,12 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X, Cpu } from 'lucide-react'
 
 const links = [
-  { id: 'why', label: 'About US' },
+  { id: 'why', label: 'Mission & Vision' },
+  { id: 'forge-team-section', label: 'About US' },
   { id: 'curriculum', label: 'Curriculum' },
-  { id: 'courses', label: 'Updates' },
+  // { id: 'courses', label: 'Updates' },
   // { id: 'exams', label: 'Vaccancies' },
   // { id: 'admissions', label: 'Admissions' }
 ]
@@ -13,6 +14,13 @@ const links = [
 export default function Navbar({ active }) {
   const [scrolled, setScrolled] = useState(false)
   const [open, setOpen] = useState(false)
+  // Own the active id locally so a click updates the highlight immediately,
+  // instead of waiting on whatever scroll-tracking the parent does.
+  const [activeId, setActiveId] = useState(active || links[0].id)
+  // While true, ignore the scroll observer so a click doesn't get overridden
+  // mid-smooth-scroll by whichever section briefly passes the viewport.
+  const suppressObserver = useRef(false)
+  const suppressTimeout = useRef(null)
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 16)
@@ -20,15 +28,54 @@ export default function Navbar({ active }) {
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
+  // Keep in sync if the parent ever passes a new `active` value (e.g. on mount).
+  useEffect(() => {
+    if (active && !suppressObserver.current) setActiveId(active)
+  }, [active])
+
+  // Scrollspy: watch every linked section and highlight whichever is
+  // currently most visible near the top of the viewport.
+  useEffect(() => {
+    const sections = links
+      .map((l) => document.getElementById(l.id))
+      .filter(Boolean)
+
+    if (sections.length === 0) return
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (suppressObserver.current) return
+        const visible = entries
+          .filter((e) => e.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)
+        if (visible[0]) setActiveId(visible[0].target.id)
+      },
+      { rootMargin: '-40% 0px -50% 0px', threshold: [0, 0.25, 0.5, 0.75, 1] }
+    )
+
+    sections.forEach((s) => observer.observe(s))
+    return () => observer.disconnect()
+  }, [])
+
   const scrollTo = (id) => {
     setOpen(false)
+    setActiveId(id) // instant highlight on click
+
+    // Ignore the observer briefly so it doesn't fight the smooth scroll
+    // and flip the highlight to a section passed along the way.
+    suppressObserver.current = true
+    clearTimeout(suppressTimeout.current)
+    suppressTimeout.current = setTimeout(() => {
+      suppressObserver.current = false
+    }, 800)
+
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' })
   }
 
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? 'bg-paper/85 backdrop-blur-md border-b border-ink/10' : 'bg-transparent'
+        scrolled ? 'bg-paper/85 backdrop-blur-md border-b border-ink/10' : 'bg-gray'
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-10 h-20 flex items-center justify-between">
@@ -40,7 +87,6 @@ export default function Navbar({ active }) {
             <Cpu size={16} strokeWidth={2} />
           </span>
           Build Minds
-          
         </button>
 
         <nav className="hidden md:flex items-center gap-1">
@@ -49,7 +95,7 @@ export default function Navbar({ active }) {
               key={link.id}
               onClick={() => scrollTo(link.id)}
               className={`px-4 py-2 text-sm font-medium rounded-full transition-colors ${
-                active === link.id ? 'text-copper' : 'text-inkSoft hover:text-ink'
+                activeId === link.id ? 'text-copper' : 'text-inkSoft hover:text-ink'
               }`}
             >
               {link.label}
@@ -59,7 +105,7 @@ export default function Navbar({ active }) {
 
         <div className="hidden md:block">
           <button
-            onClick={() => navigation.navigate("/about")}
+            onClick={() => scrollTo('admissions')}
             className="px-5 py-2.5 rounded-full bg-ink text-paper text-sm font-medium hover:bg-copper transition-colors duration-300"
           >
             {/* Apply Now */} Contact
@@ -85,7 +131,9 @@ export default function Navbar({ active }) {
                 <button
                   key={link.id}
                   onClick={() => scrollTo(link.id)}
-                  className="text-left px-2 py-3 text-base font-medium text-inkSoft hover:text-copper"
+                  className={`text-left px-2 py-3 text-base font-medium ${
+                    activeId === link.id ? 'text-copper' : 'text-inkSoft hover:text-copper'
+                  }`}
                 >
                   {link.label}
                 </button>

@@ -152,7 +152,8 @@ export default function Hero() {
     <section id="hero" className="relative pt-32 pb-20 lg:pt-40 lg:pb-28 overflow-hidden bp-grid">
       <div className="absolute inset-0 bg-gradient-to-b from-paper via-paper to-paperDim/60 -z-10" />
       <div className="max-w-7xl mx-auto px-6 lg:px-10 grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
-        <div>
+        {/* Text block: shows second on mobile, back to first (left) on desktop */}
+        <div className="order-2 lg:order-1">
           {/* <motion.div
             initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
@@ -207,8 +208,10 @@ BuildMind is on a mission to make every classroom, from Class 6 to Class 10, a l
             <div className="mt-12 grid grid-cols-3 gap-6 max-w-md border-t border-ink/10 pt-6"></div>
       
         </div>
-            <div className='order-1 lg:order-2'>
-        <RoboticDiagram />
+
+        {/* Diagram: shows first on mobile (order-1), back to second (right) on desktop */}
+        <div className="order-1 lg:order-2">
+          <RoboticDiagram />
         </div>
       </div>
     </section>

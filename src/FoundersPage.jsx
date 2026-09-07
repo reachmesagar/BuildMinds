@@ -9,7 +9,7 @@ const FOUNDERS = [
     name: "Riddhi Khanal",
     role: "Biomedical Engineer | Medical Devices, Healthcare Technology & Research",
     bg: "#DCF1E6",
-    photo: "../riddhi.jpg",
+    photo: "../riddhi.jpeg",
     bio: [
       "Riddhi Khanal is a NEC-registered Biomedical Engineer with experience in medical-device R&D, production, hardware–software integration, sensor calibration, and biomedical equipment servicing. He has worked on anesthesia workstations, ventilators, baby-warming systems, and other healthcare technologies, with over two years of professional experience in Nepal and prior R&D experience in India. His work includes installation, preventive maintenance, calibration, troubleshooting, repair, and technical support for biomedical equipment, with a focus on reliable medical-device solutions, biomedical instrumentation, embedded systems, and practical healthcare innovation.",
       "His technical expertise includes medical-device engineering, biomedical R&D, hardware and software integration, sensor calibration, testing, troubleshooting, product development, and embedded systems using Raspberry Pi, Arduino UNO, and electronics. He also works with Python and MATLAB. During his R&D experience in Vishakhapatnam, India, he contributed to the development of anesthesia workstation and ventilator products, integrating hardware and software components and supporting sensor calibration and continuous technical research during product development.",
@@ -45,7 +45,7 @@ const FOUNDERS = [
     name: "Dikendra Baduwal",
     role: "Biomedical AI Researcher | Deep Learning for Medical Imaging",
     bg: "#FBE3D8",
-    photo: "",
+    photo: "../dikendra.jpeg",
     bio: [
       "Dikendra Baduwal builds AI that sees inside the human body — turning noisy, quick-acquired MRI and CT scans into clinical-grade diagnostic intelligence. His work fuses generative models, attention-based segmentation, and LLM-driven reasoning to decode body composition, brain aging, and tumor pathology from raw scans, research forged in collaboration with A*STAR Singapore.",
       "His lung tumor segmentation pipeline achieved 93% accuracy across a validation set of more than 10,000 patient CT scans, and his body-composition AI now underpins Q1-published research in the European Journal of Radiology AI. Across every project, his focus is the same: models that are not just accurate on paper, but trustworthy enough for a radiologist to act on.",

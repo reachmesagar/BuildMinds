@@ -4,16 +4,16 @@ export default function WhoIsRunningIt() {
     {
       initials: "MC",
       name: "Riddhi Kahanl",
-      role: "CO-FOUNDER · LEAD MENTOR",
+      role: "CO-FOUNDER · CURRICULUM",
       bg: "#DCF1E6",
-      photo: "../riddhi.jpg", // e.g. "/images/maya-chen.jpg"
+      photo: "../riddhi.jpeg", // e.g. "/images/maya-chen.jpg"
     },
     {
       initials: "DO",
       name: "DIKENDRA BADUWAL",
       role: "CO-FOUNDER · CURRICULUM",
       bg: "#FBE3D8",
-      photo: "", // e.g. "/images/daniel-osei.jpg"
+      photo: "../dikendra.jpeg", // e.g. "/images/daniel-osei.jpg"
     },
   ];
 

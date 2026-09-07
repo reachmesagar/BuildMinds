@@ -14,11 +14,7 @@ const links = [
 export default function Navbar({ active }) {
   const [scrolled, setScrolled] = useState(false)
   const [open, setOpen] = useState(false)
-  // Own the active id locally so a click updates the highlight immediately,
-  // instead of waiting on whatever scroll-tracking the parent does.
   const [activeId, setActiveId] = useState(active || links[0].id)
-  // While true, ignore the scroll observer so a click doesn't get overridden
-  // mid-smooth-scroll by whichever section briefly passes the viewport.
   const suppressObserver = useRef(false)
   const suppressTimeout = useRef(null)
 
@@ -28,18 +24,12 @@ export default function Navbar({ active }) {
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
-  // Keep in sync if the parent ever passes a new `active` value (e.g. on mount).
   useEffect(() => {
     if (active && !suppressObserver.current) setActiveId(active)
   }, [active])
 
-  // Scrollspy: watch every linked section and highlight whichever is
-  // currently most visible near the top of the viewport.
   useEffect(() => {
-    const sections = links
-      .map((l) => document.getElementById(l.id))
-      .filter(Boolean)
-
+    const sections = links.map((l) => document.getElementById(l.id)).filter(Boolean)
     if (sections.length === 0) return
 
     const observer = new IntersectionObserver(
@@ -57,19 +47,46 @@ export default function Navbar({ active }) {
     return () => observer.disconnect()
   }, [])
 
+  // Lock scrolling behind the mobile menu. Locking both <html> and <body>,
+  // and using `position: fixed` on body (not just overflow: hidden), is what
+  // actually stops background scroll on iOS Safari — overflow:hidden alone
+  // is known to be unreliable there and can also block touch events from
+  // reaching the menu's own scroll container.
+  const scrollYRef = useRef(0)
+  useEffect(() => {
+    if (open) {
+      scrollYRef.current = window.scrollY
+      document.documentElement.style.overflow = 'hidden'
+      document.body.style.position = 'fixed'
+      document.body.style.top = `-${scrollYRef.current}px`
+      document.body.style.left = '0'
+      document.body.style.right = '0'
+      document.body.style.overflow = 'hidden'
+      return () => {
+        document.documentElement.style.overflow = ''
+        document.body.style.position = ''
+        document.body.style.top = ''
+        document.body.style.left = ''
+        document.body.style.right = ''
+        document.body.style.overflow = ''
+        window.scrollTo(0, scrollYRef.current)
+      }
+    }
+  }, [open])
+
   const scrollTo = (id) => {
     setOpen(false)
-    setActiveId(id) // instant highlight on click
-
-    // Ignore the observer briefly so it doesn't fight the smooth scroll
-    // and flip the highlight to a section passed along the way.
+    setActiveId(id)
     suppressObserver.current = true
     clearTimeout(suppressTimeout.current)
     suppressTimeout.current = setTimeout(() => {
       suppressObserver.current = false
     }, 800)
-
-    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    // Defer until after the body-scroll-lock cleanup above restores scroll
+    // position, otherwise scrollIntoView can fire before the lock is undone.
+    requestAnimationFrame(() => {
+      document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    })
   }
 
   return (
@@ -108,7 +125,7 @@ export default function Navbar({ active }) {
             onClick={() => scrollTo('admissions')}
             className="px-5 py-2.5 rounded-full bg-ink text-paper text-sm font-medium hover:bg-copper transition-colors duration-300"
           >
-            {/* Apply Now */} Contact
+            Contact
           </button>
         </div>
 
@@ -126,7 +143,26 @@ export default function Navbar({ active }) {
             transition={{ duration: 0.25, ease: 'easeInOut' }}
             className="md:hidden overflow-hidden bg-paper border-b border-ink/10"
           >
-            <div className="flex flex-col px-6 py-4 gap-1">
+            {/*
+              This inner div is the actual scroll container. It needs:
+              - a hard max-height (vh, not dvh — dvh is unsupported or
+                inconsistently computed in some mobile/embedded browsers,
+                which silently breaks the whole rule if it's the only value)
+              - overflow-y-auto to enable scrolling once content exceeds that
+              - overscroll-contain so scrolling the menu doesn't chain into
+                scrolling whatever is behind it
+              - -webkit-overflow-scrolling: touch for momentum scroll on iOS
+              - touchAction: 'pan-y' so touch drags are treated as scroll
+                gestures instead of being swallowed by parent handlers
+            */}
+            <div
+              className="flex flex-col px-6 py-4 gap-1 overflow-y-auto overscroll-contain"
+              style={{
+                maxHeight: '75vh',
+                WebkitOverflowScrolling: 'touch',
+                touchAction: 'pan-y'
+              }}
+            >
               {links.map((link) => (
                 <button
                   key={link.id}

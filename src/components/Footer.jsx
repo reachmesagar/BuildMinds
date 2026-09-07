@@ -3,7 +3,9 @@ import { Cpu, Mail, MapPin, Linkedin, Github, Twitter } from 'lucide-react'
 const sitemap = [
   { id: 'why', label: 'Mission & Vision' },
   { id: 'curriculum', label: 'Curriculum' },
-  { id: 'admissions', label: 'Admissions' }
+  { id: 'admissions', label: 'Admissions' },
+  { id: 'forge-team-section', label: 'AboutUs' }
+
 ]
 
 export default function Footer() {
@@ -42,10 +44,10 @@ export default function Footer() {
           <h4 className="font-mono text-[11px] uppercase tracking-wider text-paper/40 mb-4">Contact</h4>
           <ul className="space-y-2.5 text-sm">
             <li className="flex items-center gap-2">
-              <Mail size={14} /> admissions@forge.edu
+              <Mail size={14} /> admissions@buildminds.edu
             </li>
             <li className="flex items-center gap-2">
-              <MapPin size={14} /> Engineering Building, Room 214
+              <MapPin size={14} /> Kathmandu Baluwatar, Room 214
             </li>
           </ul>
         </div>
@@ -68,7 +70,7 @@ export default function Footer() {
       </div>
 
       <div className="border-t border-white/10 py-6 px-6 lg:px-10 max-w-7xl mx-auto flex flex-col sm:flex-row justify-between gap-2 text-xs text-paper/40">
-        <span>© {new Date().getFullYear()} FORGE Robotics &amp; AI Program. All rights reserved.</span>
+        <span>© {new Date().getFullYear()} Build Minds Robotics &amp; AI Program. All rights reserved.</span>
         <span>Built for undergraduates who'd rather solder than sit still.</span>
       </div>
     </footer>

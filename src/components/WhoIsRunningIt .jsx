@@ -18,10 +18,10 @@ export default function WhoIsRunningIt() {
   ];
 
   return (
-    <section className="forge-team-section py-24 lg:py-32" id="forge-team-section">
+    <section className="forge-team-section py-24 lg:py-32" id="forge-team-section" >
       <style>{`
         .forge-team-section{
-          --bg: #F7F6F1;
+          --bg: #f3f7f7fb;
           --ink: #13161F;
           --ink-soft: #5C6168;
           --ink-faint: #9A9C9F;

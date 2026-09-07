@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Settings, Github, Linkedin, Mail, ExternalLink, FileText, Award, Mic } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 const FOUNDERS = [
   {
@@ -113,6 +114,7 @@ const SECTION_ICONS = {
 export default function FoundersPage() {
   const [activeId, setActiveId] = useState(FOUNDERS[0].id);
   const founder = FOUNDERS.find((f) => f.id === activeId);
+  const navigation = useNavigate()
 
   return (
     <div className="forge-founders " >
@@ -235,11 +237,13 @@ export default function FoundersPage() {
 
       <header>
         <div className="nav">
-          <div className="logo">
+          <div className="logo" onClick={()=>navigation("/")} style={{
+            cursor:"pointer"
+          }}>
             <div className="logo-mark"><Settings size={16} /></div>
             Build Minds
           </div>
-          <a href="/" className="btn-dark">Apply Now</a>
+          {/* <a href="/" className="btn-dark">Apply Now</a> */}
         </div>
       </header>
 
@@ -260,7 +264,7 @@ export default function FoundersPage() {
                 onClick={() => setActiveId(f.id)}
               >
                 <span className="tab-avatar" style={{ background: f.photo ? "transparent" : f.bg }}>
-                  {f.photo ? <img src={f.photo} alt={f.name} /> : f.initials}
+                  {f.photo ? <img  loading="lazy"  src={f.photo} alt={f.name} /> : f.initials}
                 </span>
                 {f.name}
               </button>
@@ -269,7 +273,7 @@ export default function FoundersPage() {
 
           <div className="profile-head">
             <div className="profile-photo" style={{ background: founder.photo ? "transparent" : founder.bg }}>
-              {founder.photo ? <img src={founder.photo} alt={founder.name} /> : founder.initials}
+              {founder.photo ? <img loading="lazy" src={founder.photo} alt={founder.name} /> : founder.initials}
             </div>
             <div>
               <h2 className="profile-name">{founder.name}</h2>

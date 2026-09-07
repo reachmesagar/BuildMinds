@@ -3,7 +3,7 @@ export default function HowWeGotHere() {
     <section className="forge-story-section">
       <style>{`
         .forge-story-section{
-          --bg: #f7f6f1d2;
+          // --bg: #b9593cd2;
           --ink: #13161F;
           --ink-soft: #5C6168;
           --ink-faint: #9A9C9F;

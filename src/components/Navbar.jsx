@@ -8,7 +8,7 @@ const links = [
   { id: 'curriculum', label: 'Curriculum' },
   // { id: 'courses', label: 'Updates' },
   // { id: 'exams', label: 'Vaccancies' },
-  // { id: 'admissions', label: 'Admissions' }
+  { id: 'admissions', label: 'Admissions' }
 ]
 
 export default function Navbar({ active }) {
